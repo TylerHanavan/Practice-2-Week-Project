@@ -31,7 +31,7 @@ public class Interact implements Listener {
             if(inHand.getType() == Material.DIAMOND_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Ranked Styles")) {
                 inventories.rankedStyles(p);
             } else if(inHand.getType() == Material.IRON_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Unranked Styles")) {
-                
+                inventories.unrankedStyles(p);
             }
         }
         e.setCancelled(true);
