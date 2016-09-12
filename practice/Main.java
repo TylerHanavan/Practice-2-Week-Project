@@ -43,6 +43,7 @@ public class Main extends JavaPlugin {
     public List<String> allArenas = new ArrayList();
     public ArrayList<Inventories> inventories = new ArrayList();
     public ArrayList<UUID> inGame = new ArrayList<UUID>();
+    public Inventory unrankedKitList = Bukkit.createInventory(null, 9, "Unranked Styles");
     public Inventory rankedKitList = Bukkit.createInventory(null, 9, "Ranked Styles");
     Connection conn = DriverManager.getConnection("jdbc:mysql://" + this.plugin.getConfig().getString("MySQL.hostname") + "/" + this.plugin.getConfig().getString("MySQL.database"), this.plugin.getConfig().getString("MySQL.username"), this.plugin.getConfig().getString("MySQL.password"));
 
