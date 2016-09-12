@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Locations {
+public class Locations throws SQLException {
     public File newYML;
     public static FileConfiguration newConfig;
     private Main plugin;
