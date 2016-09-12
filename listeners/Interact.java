@@ -29,10 +29,12 @@ public class Interact implements Listener {
 
         if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
             if(inHand.getType() == Material.DIAMOND_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Ranked Styles")) {
-                e.setCancelled(true);
                 inventories.rankedStyles(p);
+            } else if(inHand.getType() == Material.IRON_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Unranked Styles")) {
+                
             }
         }
+        e.setCancelled(true);
     }
 
 }
