@@ -47,9 +47,6 @@ public class Main extends JavaPlugin {
     public Inventory rankedKitList = Bukkit.createInventory(null, 9, "Ranked Styles");
     Connection conn = DriverManager.getConnection("jdbc:mysql://" + this.plugin.getConfig().getString("MySQL.hostname") + "/" + this.plugin.getConfig().getString("MySQL.database"), this.plugin.getConfig().getString("MySQL.username"), this.plugin.getConfig().getString("MySQL.password"));
 
-    public Main(Locations locations) throws SQLException {
-    }
-
     @Override
     public void onEnable() {
         System.out.println("Practice : Enabled");
