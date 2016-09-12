@@ -49,6 +49,22 @@ public class Inventories {
 
         p.openInventory(plugin.rankedKitList);
     }
+    
+    public void unrankedStyles(Player p) {
+        ItemStack noDebuff = new ItemStack(Material.DIAMOND_SWORD);
+        ItemMeta meta = noDebuff.getItemMeta();
+        meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bNo Debuff"));
+        noDebuff.setItemMeta(meta);
+        noDebuff.addEnchantment(Enchantment.FIRE_ASPECT, 1);
+        plugin.unrankedKitList.setItem(0, noDebuff);
+        
+        ItemStack debuff = new ItemStack(Material.IRON_SWORD);
+        ItemMeta ur = debuff.getItemMeta();
+        ur.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&bDebuff"));
+        plugin.unrankedKitList.setItem(1, debuff);
+        
+        p.openInventory(plugin.unrankedKitList);
+    }
 
 
 
