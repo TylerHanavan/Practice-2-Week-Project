@@ -32,14 +32,11 @@ public class Queue {
     }
 
     public static void addRequest(CommandSender sender, Player dueled) {
-        requests.add((DuelRequests) sender);
-        requests.add((DuelRequests) dueled);
+        requests.add((DuelRequests) sender, dueled);
     }
 
     public void removeRequest(DuelRequests requests) {
-        Queue.requests.remove(requests);
-        Queue.requests.remove(requests.getRecievedReq());
-        Queue.requests.remove(requests.getReq());
+        Queue.requests.remove(requests, requests.getRecievedReq(), requests.getReq());
     }
 
     public Arena getArena() {
