@@ -31,20 +31,28 @@ public class Duel implements CommandExecutor {
                     Message.send(sender, "&4Please specify a player!");
                 } else {
                     Player target = Bukkit.getServer().getPlayer(args[0]);
-                    Message.send(p, "&bYou have dueled " + args[0]);
-                    Message.send(target, "&bYou have been dueled by " + p);
-                    Queue.addRequest(sender, target);
+                    if(target != null) {
+	                    Message.send(p, "&bYou have dueled " + args[0]);
+	                    Message.send(target, "&bYou have been dueled by " + p);
+	                    Queue.addRequest(sender, target);
+                    } else {
+	                    Message.send(p, "&4That player is not online!");
+                    }
                 }
             } else if(cmd.getName().equalsIgnoreCase("accept")) {
                 if(args[0] == null) {
                     Message.send(sender, "&4Please specify who you're accepting a duel from!");
                 } else {
                     Player target = Bukkit.getServer().getPlayer(args[0]);
-                    if(!Queue.getRequest(target)) {
-                        Message.send(p, "&4You have not been dueled by this player!");
+                    if(target != null) {
+	                    if(!Queue.getRequest(target)) {
+	                        Message.send(p, "&4You have not been dueled by this player!");
+	                    } else {
+	                        //TP THEM TO THE ARENA
+	                        //START GAME
+	                    }
                     } else {
-                        //TP THEM TO THE ARENA
-                        //START GAME
+	                    Message.send(p, "&4That player is not online!");
                     }
                 }
             } else if(cmd.getName().equalsIgnoreCase("deny")) {
@@ -52,10 +60,14 @@ public class Duel implements CommandExecutor {
                     Message.send(sender, "&4Please specify who's request you're denying!");
                 } else {
                     Player target = Bukkit.getServer().getPlayer(args[0]);
-                    if(!Queue.getRequest(target)) {
-                        Message.send(p, "&4You have not been dueled by this player!");
+                    if(target != null) {
+	                    if(!Queue.getRequest(target)) {
+	                        Message.send(p, "&4You have not been dueled by this player!");
+	                    } else {
+	                        queue.removeRequest(requests);
+	                    }
                     } else {
-                        queue.removeRequest(requests);
+	                    Message.send(p, "&4That player is not online!");
                     }
                 }
             }

@@ -46,6 +46,12 @@ public class Locations throws SQLException {
     public void reloadNewConfig()   {
         if (this.newYML == null) {
             this.newYML = new File(this.plugin.getDataFolder(), "arenas.yml");
+            if(!this.newYML.exists())
+            	try {
+            		this.newYML.createNewFile();
+            	} catch (Exception e) {
+            		e.printStackTrace();
+            	}
         }
         newConfig = YamlConfiguration.loadConfiguration(this.newYML);
 
