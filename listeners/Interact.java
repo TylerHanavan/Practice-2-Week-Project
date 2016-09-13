@@ -27,14 +27,16 @@ public class Interact implements Listener {
         Action action = e.getAction();
         ItemStack inHand = p.getItemInHand();
 
-        if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
-            if(inHand.getType() == Material.DIAMOND_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Ranked Styles")) {
-                inventories.rankedStyles(p);
-            } else if(inHand.getType() == Material.IRON_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Unranked Styles")) {
-                inventories.unrankedStyles(p);
-            }
+        if(inHand != null){
+	        if(action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK){
+	            if(inHand.getType() == Material.DIAMOND_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Ranked Styles")) {
+	                inventories.rankedStyles(p);
+	            } else if(inHand.getType() == Material.IRON_SWORD && inHand.getItemMeta().getDisplayName().equalsIgnoreCase("Unranked Styles")) {
+	                inventories.unrankedStyles(p);
+	            }
+	        }
+	        e.setCancelled(true);
         }
-        e.setCancelled(true);
     }
 
 }
