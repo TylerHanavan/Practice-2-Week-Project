@@ -6,12 +6,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Queue {
 
     private Main plugin;
     private Arena arena;
-    private static ArrayList<DuelRequests> requests = new ArrayList();
+    private static List<DuelRequests> requests = new ArrayList<DuelRequests>();
 
 
     public Queue(Main p, Arena arena) {
@@ -20,7 +21,7 @@ public class Queue {
         p.queue.add(this);
     }
 
-    public ArrayList<DuelRequests> getRequests() {
+    public List<DuelRequests> getRequests() {
         return requests;
     }
 
@@ -32,11 +33,13 @@ public class Queue {
     }
 
     public static void addRequest(CommandSender sender, Player dueled) {
-        requests.add((DuelRequests) sender, dueled);
+        //requests.add((DuelRequests) sender, dueled);//List.add() only takes one parameter... And DuelRequests cannot be cast to CommandSender or Player. You need to make a way to get an instance of DuelRequests as CommandSender or Player
     }
 
     public void removeRequest(DuelRequests requests) {
-        Queue.requests.remove(requests, requests.getRecievedReq(), requests.getReq());
+        Queue.requests.remove(requests);
+        Queue.requests.remove(requests.getRecievedReq());
+        Queue.requests.remove(requests.getReq()); //List.remove() only takes one parameter at a time
     }
 
     public Arena getArena() {

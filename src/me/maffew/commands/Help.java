@@ -25,7 +25,7 @@ public class Help implements CommandExecutor {
         if(sender instanceof Player) {
             Player p = (Player) sender;
             if(cmd.getName().equalsIgnoreCase("help")) {
-                utils.helpCommand(sender);
+                utils.helpCommand(sender, args);
             }
         }
 

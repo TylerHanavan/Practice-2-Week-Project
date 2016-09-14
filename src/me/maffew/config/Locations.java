@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class Locations throws SQLException {
+public class Locations {//throws SQLException { // A class can not throw an exception, but a constructor could
     public File newYML;
     public static FileConfiguration newConfig;
     private Main plugin;

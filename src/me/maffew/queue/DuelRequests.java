@@ -9,6 +9,7 @@ public class DuelRequests {
     private String sendReq;
     private String recievedReq;
     private Arena arena;
+    private boolean duelKit = false;
 
     public DuelRequests(Main p, String send, String rec, Arena bool) {
         this.sendReq = send;

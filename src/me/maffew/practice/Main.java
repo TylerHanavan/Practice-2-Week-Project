@@ -45,8 +45,7 @@ public class Main extends JavaPlugin {
     public ArrayList<UUID> inGame = new ArrayList<UUID>();
     public Inventory unrankedKitList = Bukkit.createInventory(null, 9, "Unranked Styles");
     public Inventory rankedKitList = Bukkit.createInventory(null, 9, "Ranked Styles");
-    Connection conn = DriverManager.getConnection("jdbc:mysql://" + this.plugin.getConfig().getString("MySQL.hostname") + "/" + this.plugin.getConfig().getString("MySQL.database"), this.plugin.getConfig().getString("MySQL.username"), this.plugin.getConfig().getString("MySQL.password"));
-
+    Connection conn = null;
     @Override
     public void onEnable() {
         System.out.println("Practice : Enabled");
@@ -59,10 +58,17 @@ public class Main extends JavaPlugin {
         registerCommands();
         registerListeners();
         loadClasses();
+        
+        try {
+			this.conn = DriverManager.getConnection("jdbc:mysql://" + this.plugin.getConfig().getString("MySQL.hostname") + "/" + this.plugin.getConfig().getString("MySQL.database"), this.plugin.getConfig().getString("MySQL.username"), this.plugin.getConfig().getString("MySQL.password"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         if(config.getBoolean("MySQL.enabled")) {
             this.sql.openConnection();
-            if(this.sql.con != null) {
+            if(this.sql.getConnection() != null) {
                 this.sql.createTable();
             }
         }

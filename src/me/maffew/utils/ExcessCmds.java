@@ -17,9 +17,9 @@ public class ExcessCmds {
         + this.plugin.getConfig().getString("Messages.Help.Information") + "\n"
         + "&8&m-----------------------------------------------------\n" 
         + this.plugin.getConfig().getString("Messages.Help.Season") + "\n"
-        + this.plugin.getConfig().getString("Messages.Help.AvailableKits")) + "\n" 
-        + this.plugin.getConfig().getString("Messages.Help.HelpfulCommands")) + "\n"
-        + this.plugin.getConfig().getString("Messages.Help.DuelCmd")) + "\n"
+        + this.plugin.getConfig().getString("Messages.Help.AvailableKits") + "\n" 
+        + this.plugin.getConfig().getString("Messages.Help.HelpfulCommands") + "\n"
+        + this.plugin.getConfig().getString("Messages.Help.DuelCmd") + "\n"
         + this.plugin.getConfig().getString("Messages.Help.Leaderboard"));
     }
 

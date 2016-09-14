@@ -67,5 +67,16 @@ public class MySQL {
 
     }
 
+	public void createTable() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public Connection getConnection() {
+		
+		return this.con;
+		
+	}
+
 
 }
